@@ -1,0 +1,4 @@
+numpy
+pyomo==6.7.0
+ipopt==3.12.12
+logging
