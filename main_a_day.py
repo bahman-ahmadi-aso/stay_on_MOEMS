@@ -79,4 +79,25 @@ MOEMS=ModelParameters(Time_Resolution,n_Time_intervals,
                     EV_charger_ID,EV_OFs,EV_smartcharge,Solver)
 
 
+
+##expected output
+#for ESS
+print(MOEMS.ESS_SOC)
+print(MOEMS.ESS_P)
+
+#for eBUS
+print(MOEMS.eBUS_SOC)
+print(MOEMS.eBUS_P)
+
+#for Grid
+print(MOEMS.allPowers)
+
+#for EV
+print(MOEMS.EV_SOC)
+print(MOEMS.EV_SOC_discrete)
+print(MOEMS.EV_P)
+print(MOEMS.EV_P_discrete)
+print(MOEMS.EV_plan)
+
+
 c=1
