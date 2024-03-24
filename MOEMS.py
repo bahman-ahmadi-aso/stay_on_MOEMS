@@ -16,6 +16,61 @@ class ModelParameters:
                 eBus_scedule=None,EV_er:int=None,EV_scedule=None,EV_max_charge:int=None,
                 EV_max_discharge:int=None,EV_charge_efficiency:int=None,EV_discharge_efficiency:int=None,EV_n_charger:int=None,
                 EV_charger_phase=None,EV_charger_ID:int=None,EV_OFs=None,EV_smartcharge=None,Solver='ipopt'):
+        """
+        parameters:
+        Time_Resolution (int): the time resolution of the model in minutes
+        n_Time_intervals (int): the number of time intervals in one day
+        Grid_max_in (int): the maximum power that can be injected to the grid in W
+        Grid_max_out (int): the maximum power that can be taken from the grid in W
+        Grid_OFs (dict): the objective functions and their weights, the sum of weights should be 100%
+        Load_P (array): the load profile in W with shape of (n_Time_intervals, n_loads) or (n_loads, n_Time_intervals) 
+        PV_P (array): the PV predections in W with shape of (n_Time_intervals, n_PV) or (n_PV, n_Time_intervals)
+        electricity_cost (array): the electricity cost predections in cost/Wh
+        CO2 (array): the CO2 predections in gCO2/Wh
+        ESS_capacity (array): the capacity of ESSs in Wh with shape of (n_ESS, )
+        ESS_SOC_init (array): the initial SOC of ESSs in % with shape of (n_ESS, )
+        ESS_max_charge (array): the maximum charge power of ESSs in W with shape of (n_ESS, )
+        ESS_max_discharge (array): the maximum discharge power of ESSs in W with shape of (n_ESS, )
+        ESS_charge_efficiency (array): the charge efficiency of ESSs in % with shape of (n_ESS, )
+        ESS_discharge_efficiency (array): the discharge efficiency of ESSs in % with shape of (n_ESS, )
+        eBUS_capacity (array): the capacity of eBUSs in Wh
+        eBUS_SOC_init (array): the initial SOC of eBUSs in % with shape of (n_eBUS, )
+        eBUS_max_charge (array): the maximum charge power of eBUSs in W with shape of (n_eBUS, )
+        eBUS_max_discharge (array): the maximum discharge power of eBUSs in W
+        eBUS_charge_efficiency (array): the charge efficiency of eBUSs in % with shape of (n_eBUS, )
+        eBUS_discharge_efficiency (array): the discharge efficiency of eBUSs in % with shape of (n_eBUS, )
+        eBUS_round_trip_energy (array): the energy consumed by ebus for a round trip, in Wh with shape of (n_eBUS, )
+        eBus_scedule (array): the eBus_scedule in % with shape of (n_Time_intervals, n_eBUS) or (n_eBUS, n_Time_intervals)
+        EV_er (array): the energy required by EVs in Wh with shape of (n_EV, )
+        EV_scedule (array): the EV_scedule in 0 and 1 with shape of (n_Time_intervals, n_EV) or (n_EV, n_Time_intervals), 1 for connected to charger and 0 for not connected
+        EV_max_charge (array): the maximum charge power of EVs in W with shape of (n_EV, )
+        EV_max_discharge (array): the maximum discharge power of EVs in W with shape of (n_EV, )
+        EV_charge_efficiency (array): the charge efficiency of EVs in % with shape of (n_EV, )
+        EV_discharge_efficiency (array): the discharge efficiency of EVs in % with shape of (n_EV, )
+        EV_n_charger (int): the number of chargers in your grid
+        EV_charger_phase (array): the phase of chargers with shape of (EV_n_charger, )
+        EV_charger_ID (array): the ID of chargers with shape of (n_EV, )
+        EV_OFs (array): the objective functions and their weights, the sum of weights should be 100% with shape of (n_EV, )
+        EV_smartcharge (array): if the EV user asks for smart charging or not with shape of (n_EV, )
+        Solver (str): the solver that you want to use, default is 'ipopt'
+        
+        outputs/varibales:
+        instance: the instance of the model
+        solver: the solver that you want to use
+        model: the model that you have created
+        ESS_SOC: the SOC of ESSs
+        ESS_P: the power of ESSs
+        eBUS_SOC: the SOC of eBUSs
+        eBUS_P: the power of eBUSs
+        allPowers: the sum of all powers
+        EV_SOC: the SOC of EVs
+        EV_P: the power of EVs
+        EV_plan: the plan of EVs
+        EV_SOC_discrete: the discrete SOC of EVs
+        EV_P_discrete: the discrete power of EVs
+        """
+
+
 
         ##Time steps resolution
         self.Time_Resolution=Time_Resolution # minutes
