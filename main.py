@@ -2,7 +2,7 @@ from MOEMS import ModelParameters
 import numpy as np
 
 import os
-ipopt_path=os.getcwd()
+ipopt_path=os.getcwd() #change it to the path of the ipopt solver depending on your system
 os.environ['PATH'] = ipopt_path + os.pathsep + os.environ['PATH']
 ###example for a grid optimizing to 10 time intervals with 15 minutes resolution
 
