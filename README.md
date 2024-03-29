@@ -22,6 +22,9 @@ This system optimizes the energy management of a microgrid, considering various 
 - Ipopt 3.12.12
 
 
+I added the ipopt files for MacOS and Linux, please add them to your path depending on your OS. for windows, you can download the binaries from the following link: https://www.coin-or.org/download/binary/Ipopt/
+
+
 Refer to `requirements.txt` for a complete list of dependencies.
 
 replace solver "Ipopt 3.12.12" by your solver of choice.

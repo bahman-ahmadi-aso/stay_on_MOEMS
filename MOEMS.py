@@ -298,7 +298,7 @@ class ModelParameters:
             self.EV_max_discharge=[]
             self.EV_charge_efficiency=[]
             self.EV_discharge_efficiency=[]
-            self.EV_n_charger=[]
+            self.EV_n_charger=0
             self.EV_charger_ID=[]
             self.EV_OFs=[]
             self.EV_smartcharge=[]

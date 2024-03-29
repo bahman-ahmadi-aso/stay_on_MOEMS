@@ -1,6 +1,9 @@
 from MOEMS import ModelParameters 
 import numpy as np
 
+import os
+ipopt_path=os.getcwd()
+os.environ['PATH'] = ipopt_path + os.pathsep + os.environ['PATH']
 ###example for a grid optimizing to 10 time intervals with 15 minutes resolution
 
 #time parameters
@@ -67,17 +70,17 @@ Solver='ipopt'  #solver name
 
 
 #Model Parameters
-MOEMS=ModelParameters(Time_Resolution,n_Time_intervals,
-                    Grid_max_in,Grid_max_out,Grid_OFs,Load_P,
-                    PV_P,electricity_cost,CO2,ESS_capacity,
-                    ESS_SOC_init,ESS_max_charge,ESS_max_discharge,
-                    ESS_charge_efficiency,ESS_discharge_efficiency,
-                    eBUS_capacity,eBUS_SOC_init,eBUS_max_charge,
-                    eBUS_max_discharge,eBUS_charge_efficiency,
-                    eBUS_discharge_efficiency,eBUS_round_trip_energy,
-                    eBus_scedule,EV_er,EV_scedule,EV_max_charge,EV_max_discharge,
-                    EV_charge_efficiency,EV_discharge_efficiency,EV_n_charger,EV_charger_phase,
-                    EV_charger_ID,EV_OFs,EV_smartcharge,Solver)
+MOEMS=ModelParameters(Time_Resolution=Time_Resolution,n_Time_intervals=n_Time_intervals,
+                    Grid_max_in=Grid_max_in,Grid_max_out=Grid_max_out,Grid_OFs=Grid_OFs,Load_P=Load_P,
+                    PV_P=PV_P,electricity_cost=electricity_cost,CO2=CO2,ESS_capacity=ESS_capacity,
+                    ESS_SOC_init=ESS_SOC_init,ESS_max_charge=ESS_max_charge,ESS_max_discharge=ESS_max_discharge,
+                    ESS_charge_efficiency=ESS_charge_efficiency,ESS_discharge_efficiency=ESS_discharge_efficiency,
+                    eBUS_capacity=eBUS_capacity,eBUS_SOC_init=eBUS_SOC_init,eBUS_max_charge=eBUS_max_charge,
+                    eBUS_max_discharge=eBUS_max_discharge,eBUS_charge_efficiency=eBUS_charge_efficiency,
+                    eBUS_discharge_efficiency=eBUS_discharge_efficiency,eBUS_round_trip_energy=eBUS_round_trip_energy,
+                    eBus_scedule=eBus_scedule,EV_er=EV_er,EV_scedule=EV_scedule,EV_max_charge=EV_max_charge,EV_max_discharge=EV_max_discharge,
+                    EV_charge_efficiency=EV_charge_efficiency,EV_discharge_efficiency=EV_discharge_efficiency,EV_n_charger=EV_n_charger,EV_charger_phase=EV_charger_phase,
+                    EV_charger_ID=EV_charger_ID,EV_OFs=EV_OFs,EV_smartcharge=EV_smartcharge,Solver=Solver)
 
 ##expected output
 #for ESS
